@@ -1,0 +1,34 @@
+<h3> New Ski</h3>
+<form [formGroup]="complexForm" (ngSubmit)="newBoot(complexForm.value)">
+    <div class="form-group">
+        <label for=""><b>Brand</b></label>
+        <input type="text" class="form-control" [formControl]="complexForm.controls['brand']" />
+        <div *ngIf="complexForm.controls['brand'].hasError('required')" class="has-error">
+            field required
+        </div>
+    </div>
+    <div class="form-group">
+        <label for=""><b>Model</b></label>
+        <input type="text" class="form-control" [formControl]="complexForm.controls['model']" />
+        <div *ngIf="complexForm.controls['model'].hasError('required')" class="has-error">
+            field required
+        </div>
+    </div>
+    <div class="form-group">
+        <label for=""><b>Size</b></label>
+        <input type="text" class="form-control" [formControl]="complexForm.controls['size']" />
+        <div *ngIf="complexForm.controls['size'].hasError('required')" class="has-error">
+            field required
+        </div>
+    </div>
+    <div class="form-group">
+        <label for=""><b>Stock</b></label>
+        <input type="text" class="form-control" [formControl]="complexForm.controls['inStockNum']" />
+        <div *ngIf="complexForm.controls['stock'].hasError('required')" class="has-error">
+            field required
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="!complexForm.valid">Submit</button>
+    </div>
+</form>

@@ -1,0 +1,41 @@
+<div class="row" style="padding-top: 15px;">
+    <div class="col-md-6">
+        <a class="btn btn-primary btn-xs pull-right " routerLink="/addSkiPole"
+           preserveQueryParams preserveFragment><b>+</b>Add new Ski</a>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-10">
+        <table class="col-md-10 row-border hover" style="border: 1px solid black; border-collapse: collapse;width: 100%;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Model</th>
+                    <th>Brand</th>
+                    <th>Size</th>
+                    <th>Stock</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let skiPole of filtredSkiPole">
+                    <td>{{skiPole.id}} </td>
+                    <td>{{skiPole.model}}</td>
+                    <td>{{skiPole.brand}}</td>
+                    <td>{{skiPole.size}}</td>
+                    <td>{{skiPole.inStockNum}}</td>
+                    <td>
+                        <button class="btn btn-link" routerLink="/updateSkiPole/{{skiPole.id}}"
+                                preserveQueryParams preserveFragment>
+                            <i class="fa fa-pencil" aria-hidden="true"></i> Update
+                        </button>
+                        <button class="btn btn-link" (click)="deleteSkiPole(ski.id)">
+                            <i class="fa fa-trash" aria-hidden="true"></i> Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
